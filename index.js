@@ -1,17 +1,10 @@
-const http= require('http');
-const data = {
-    firstName: 'Rajat',
-    lastName: 'Parbhakar'}
-
-const site = http.createServer(function(req,res){
-    res.setHeader('Content-Type', 'text/html');
-    console.log("Hello World")
-res.write(JSON.stringify(data))
-console.log(req.url);
-//res.setHeader('Content-Type', 'application/json');
-
-res.write('<h1>Hello World2');
-res.end();
+var express = require('express');
+var app = express();
+app.get('/', function(req,res){
+    res.send("<h1>Hello World2")
 });
-
-site.listen(3000);
+app.post('/', function(req,res){
+res.send("Hello World")
+}
+)
+app.listen(3000);
